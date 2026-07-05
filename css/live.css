@@ -1,0 +1,52 @@
+.live-tournaments{
+    padding:100px 0;
+}
+
+.live-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.live-card{
+    position:relative;
+    background:var(--glass-bg);
+    border:1px solid var(--glass-border);
+    border-radius:20px;
+    padding:30px;
+    backdrop-filter:blur(var(--glass-blur));
+    transition:.3s;
+}
+
+.live-card:hover{
+    transform:translateY(-8px);
+    border-color:var(--primary-color);
+}
+
+.live-badge{
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:#ff3b30;
+    color:#fff;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.live-card h3{
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.live-card p{
+    color:var(--text-secondary);
+    margin-bottom:10px;
+}
+
+.live-card .btn{
+    margin-top:20px;
+    width:100%;
+}
