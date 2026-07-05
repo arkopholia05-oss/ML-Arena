@@ -1,0 +1,39 @@
+:root{
+
+    --primary-color:#FFC107;
+
+    --secondary-color:#00E5FF;
+
+    --background-color:#0B0B0F;
+
+    --card-color:#16161D;
+
+    --text-color:#FFFFFF;
+
+    --text-secondary:#A7A7A7;
+
+    --success-color:#00C853;
+
+    --danger-color:#FF1744;
+
+    --border-color:#2C2C35;
+
+    --shadow-color:rgba(0,0,0,.35);
+
+    --border-radius:15px;
+
+    --transition:.3s ease;
+
+    --container-width:1200px;
+
+    --section-padding:80px;
+
+    --navbar-height:80px;
+
+    --glass-bg:rgba(255,255,255,0.05);
+
+    --glass-border:rgba(255,255,255,0.08);
+
+    --glass-blur:20px;
+
+}
