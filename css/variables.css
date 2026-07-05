@@ -36,4 +36,22 @@
 
     --glass-blur:20px;
 
+    --background-color:#07090F;
+
+    --primary-color:#FFC107;
+
+    --secondary-color:#00E5FF;
+
+    --text-secondary:#B7BCC7;
+
+    --glass-bg:rgba(255,255,255,.05);
+
+    --glass-border:rgba(255,255,255,.10);
+
+    --glass-blur:16px;
+
+    --navbar-height:80px;
+
+
+
 }
