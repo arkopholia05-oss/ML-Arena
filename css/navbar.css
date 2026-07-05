@@ -38,3 +38,40 @@ nav{
 .nav-links a:hover{
     color:var(--primary-color);
 }
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:30px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background:#07090F;
+        display:none;
+        flex-direction:column;
+        padding:25px;
+        gap:20px;
+        border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    nav .btn{
+        display:none;
+    }
+
+}
