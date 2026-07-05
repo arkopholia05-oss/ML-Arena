@@ -5,7 +5,8 @@ header{
     width:100%;
     z-index:1000;
     background:rgba(7,9,15,.85);
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
     border-bottom:1px solid rgba(255,255,255,.08);
 }
 
@@ -17,21 +18,23 @@ nav{
 }
 
 .logo{
-    font-size:28px;
+    font-size:30px;
     font-weight:700;
-    color:#fff;
+    color:#ffffff;
 }
 
-nav ul{
+.nav-links{
     display:flex;
+    align-items:center;
     gap:35px;
 }
 
-nav ul a{
-    color:#fff;
+.nav-links a{
+    color:#ffffff;
+    font-weight:500;
     transition:.3s;
 }
 
-nav ul a:hover{
+.nav-links a:hover{
     color:var(--primary-color);
 }

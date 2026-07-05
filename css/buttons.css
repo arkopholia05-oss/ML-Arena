@@ -26,3 +26,25 @@
     background:var(--primary-color);
     color:#000;
 }
+.btn{
+    cursor:pointer;
+    transition:all .3s ease;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#FFC107,#FF9800);
+    box-shadow:0 10px 25px rgba(255,193,7,.35);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(255,193,7,.5);
+}
+
+.btn-outline{
+    background:transparent;
+}
+
+.btn-outline:hover{
+    transform:translateY(-4px);
+}
