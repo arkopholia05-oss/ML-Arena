@@ -1,14 +1,16 @@
-import app from "../firebase/firebase-config.js";
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    addDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 import {
+    getAuth
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
-getFirestore,
-
-collection,
-
-getDocs
-
-} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+const auth = getAuth(app);
 
 const db = getFirestore(app);
 
@@ -36,10 +38,10 @@ tournamentList.innerHTML+=`
 
 <p>🟢 ${data.status}</p>
 
-<button class="join-btn">
-
+<button
+class="join-btn"
+data-id="${doc.id}">
 Join Tournament
-
 </button>
 
 </div>
@@ -51,3 +53,34 @@ Join Tournament
 }
 
 loadTournaments();
+document.addEventListener("click", async (e) => {
+
+    if (!e.target.classList.contains("join-btn")) return;
+
+    if (!auth.currentUser) {
+        alert("Please login first.");
+        return;
+    }
+
+    const tournamentId = e.target.dataset.id;
+
+    try {
+
+        await addDoc(collection(db, "joinedTournaments"), {
+
+            tournamentId: tournamentId,
+            userId: auth.currentUser.uid,
+            joinedAt: serverTimestamp(),
+            status: "Joined"
+
+        });
+
+        alert("Tournament Joined Successfully!");
+
+    } catch (error) {
+
+        alert(error.message);
+
+    }
+
+});
