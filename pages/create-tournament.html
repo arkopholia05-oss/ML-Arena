@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Create Tournament | ML-Arena</title>
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/create-tournament.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="form-card">
+
+        <h1>Create Tournament</h1>
+
+        <form id="tournamentForm">
+
+            <input
+            type="text"
+            id="title"
+            placeholder="Tournament Name"
+            required>
+
+            <input
+            type="text"
+            id="game"
+            placeholder="Game Name"
+            required>
+
+            <input
+            type="date"
+            id="date"
+            required>
+
+            <input
+            type="number"
+            id="slots"
+            placeholder="Maximum Teams"
+            required>
+
+            <button type="submit">
+
+                Create Tournament
+
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+
+</div>
+
+<script type="module" src="../js/create-tournament.js"></script>
+
+</body>
+
+</html>
