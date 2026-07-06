@@ -42,9 +42,6 @@ if (!user.emailVerified) {
 message.style.color = "#00e676";
 message.textContent = "Login successful!";
 
-        message.style.color = "#00e676";
-        message.textContent = "Login successful!";
-
         // পরের Step-এ Dashboard-এ Redirect করব
 
     } catch (error) {
