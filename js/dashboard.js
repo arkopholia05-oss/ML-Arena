@@ -6,24 +6,60 @@ import {
     signOut
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
-const auth = getAuth(app);
+import {
+    getFirestore,
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const welcomeText = document.getElementById("welcomeText");
 const userEmail = document.getElementById("userEmail");
+const userRole = document.getElementById("userRole");
 const logoutBtn = document.getElementById("logoutBtn");
 
-onAuthStateChanged(auth,(user)=>{
+onAuthStateChanged(auth, async (user) => {
 
-    if(user){
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
 
-        userEmail.textContent=user.email;
+    try {
 
-    }else{
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
 
-        window.location.href="login.html";
+        if (docSnap.exists()) {
+
+            const data = docSnap.data();
+
+            welcomeText.textContent = `Welcome, ${data.fullName}`;
+            userEmail.textContent = data.email;
+            userRole.textContent = `Role: ${data.role}`;
+
+        } else {
+
+            welcomeText.textContent = "Welcome!";
+            userEmail.textContent = user.email;
+            userRole.textContent = "Role: Player";
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        welcomeText.textContent = "Welcome!";
+        userEmail.textContent = user.email;
+        userRole.textContent = "Unable to load profile.";
 
     }
 
 });
+
 logoutBtn.addEventListener("click", async () => {
 
     try {
