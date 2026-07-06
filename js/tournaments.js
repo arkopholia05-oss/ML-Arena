@@ -38,11 +38,21 @@ tournamentList.innerHTML+=`
 
 <p>🟢 ${data.status}</p>
 
+<div class="btn-group">
+
 <button
 class="join-btn"
 data-id="${doc.id}">
 Join Tournament
 </button>
+
+<button
+class="details-btn"
+data-id="${doc.id}">
+View Details
+</button>
+
+</div>
 
 </div>
 
@@ -82,5 +92,15 @@ document.addEventListener("click", async (e) => {
         alert(error.message);
 
     }
+
+});
+document.addEventListener("click",(e)=>{
+
+if(!e.target.classList.contains("details-btn")) return;
+
+const id=e.target.dataset.id;
+
+window.location.href=
+`tournament-details.html?id=${id}`;
 
 });

@@ -217,3 +217,22 @@
 .show-password input{
     width:auto;
 }
+.btn-group{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.details-btn{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#3b82f6;
+    color:white;
+    cursor:pointer;
+}
+
+.join-btn{
+    flex:1;
+}
