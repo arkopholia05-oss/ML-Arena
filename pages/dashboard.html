@@ -11,38 +11,60 @@
 
 <body>
 
-<div class="dashboard">
+<div class="dashboard-container">
 
-    <div class="dashboard-card">
+    <aside class="sidebar">
 
-        <h1>Welcome to ML-Arena</h1>
+        <div class="logo">
+            <h2>🎮 ML-Arena</h2>
+        </div>
 
-        <p id="userEmail">Loading...</p>
+        <nav>
+
+            <a href="#" class="active">🏠 Dashboard</a>
+            <a href="#">🏆 Tournaments</a>
+            <a href="#">👥 Teams</a>
+            <a href="#">👤 Profile</a>
+            <a href="#">⚙️ Settings</a>
+
+        </nav>
+
+        <button id="logoutBtn">🚪 Logout</button>
+
+    </aside>
+
+    <main class="content">
+
+        <div class="welcome-card">
+
+            <h1 id="welcomeText">Welcome</h1>
+
+            <p id="userEmail"></p>
+
+            <p id="userRole"></p>
+
+        </div>
 
         <div class="stats">
 
             <div class="card">
-                <h2>0</h2>
-                <p>Tournaments Joined</p>
+                <h2>25</h2>
+                <p>Tournaments</p>
             </div>
 
             <div class="card">
-                <h2>0</h2>
+                <h2>12</h2>
                 <p>Wins</p>
             </div>
 
             <div class="card">
-                <h2>0</h2>
+                <h2>5</h2>
                 <p>Teams</p>
             </div>
 
         </div>
 
-        <button id="logoutBtn">
-            Logout
-        </button>
-
-    </div>
+    </main>
 
 </div>
 

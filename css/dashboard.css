@@ -144,3 +144,53 @@
     padding:25px;
     border-radius:15px;
 }
+.dashboard-container{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:260px;
+    background:#12141c;
+    padding:30px 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.logo h2{
+    color:#00e676;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:40px;
+}
+
+.sidebar nav a{
+    color:white;
+    text-decoration:none;
+    padding:14px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active{
+    background:#00e676;
+    color:black;
+}
+
+.content{
+    flex:1;
+    padding:40px;
+}
+
+.welcome-card{
+    background:#1b1d25;
+    padding:30px;
+    border-radius:20px;
+    margin-bottom:30px;
+}
