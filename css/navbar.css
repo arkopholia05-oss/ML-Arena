@@ -75,3 +75,14 @@ nav{
     }
 
 }
+.nav-links a.active{
+
+    color:var(--primary-color);
+
+}
+
+.nav-links a{
+
+    transition:.3s;
+
+}

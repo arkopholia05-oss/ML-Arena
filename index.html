@@ -65,15 +65,15 @@
 
             <ul class="nav-links">
 
-                <li><a href="#">Home</a></li>
+                <li><a href="#home">Home</a></li>
 
-                <li><a href="#">Tournaments</a></li>
+                <li><a href="#tournaments">Tournaments</a></li>
 
-                <li><a href="#">Teams</a></li>
+                <li><a href="#teams">Teams</a></li>
 
                 <li><a href="#">Leaderboard</a></li>
 
-                <li><a href="#">Contact</a></li>
+                <li><a href="#faq">Contact</a></li>
 
             </ul>
 
@@ -90,7 +90,7 @@
     </div>
 
 </header>
-    <section class="hero reveal">
+<section id="home" class="hero reveal">
 
     <div class="container">
 
@@ -155,7 +155,7 @@
 
 </section>
 
-<section class="featured-tournaments reveal">
+<section id="tournaments" class="featured-tournaments reveal">
 
     <div class="container">
 
@@ -241,7 +241,7 @@
     </div>
 
 </section>
-<section class="live-tournaments reveal">
+<section id="live" class="live-tournaments reveal">
 
     <div class="container">
 
@@ -284,7 +284,7 @@
     </div>
 
 </section>
-    <section class="features reveal">
+<section id="features" class="features reveal">
 
     <div class="container">
 
@@ -343,30 +343,31 @@
     </div>
 
 </section>
-<section class="stats reveal">
+<section id="stats" class="stats reveal">
 
     <div class="container">
 
         <div class="stats-grid">
 
             <div class="stat-card">
-                <h2>25K+</h2>
+                <h2 class="counter" data-target="25000">0</h2>
+                        <p>Registered Players</p>
                 <p>Registered Players</p>
             </div>
 
             <div class="stat-card">
-                <h2>500+</h2>
-                <p>Tournaments</p>
+             <h2 class="counter" data-target="500">0</h2>
+<p>Tournaments</p>
             </div>
 
             <div class="stat-card">
-                <h2>$50K+</h2>
-                <p>Total Prize Pool</p>
+             <h2 class="counter" data-target="50000">0</h2>
+<p>Total Prize Pool</p>
             </div>
 
             <div class="stat-card">
-                <h2>99.9%</h2>
-                <p>Platform Uptime</p>
+            <h2 class="counter" data-target="99.9">0</h2>
+<p>Platform Uptime</p>
             </div>
 
         </div>
@@ -374,7 +375,7 @@
     </div>
 
 </section>
-<section class="top-teams reveal">
+<section id="teams" class="top-teams reveal">
 
     <div class="container">
 
@@ -451,7 +452,7 @@
     </div>
 
 </section>
-<section class="testimonials reveal">
+<section id="testimonials" class="testimonials reveal">
 
     <div class="container">
 
@@ -510,7 +511,7 @@
     </div>
 
 </section>
-<section class="faq reveal">
+<section id="faq" class="faq reveal">
 
     <div class="container">
 
@@ -620,6 +621,8 @@
     <script src="js/navbar.js"></script>
     <script src="js/scroll.js"></script>
     <script src="js/loader.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/active-nav.js"></script>
 
 </body>
 
