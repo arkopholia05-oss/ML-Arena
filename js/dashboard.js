@@ -19,6 +19,8 @@ const welcomeText = document.getElementById("welcomeText");
 const userEmail = document.getElementById("userEmail");
 const userRole = document.getElementById("userRole");
 const logoutBtn = document.getElementById("logoutBtn");
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.querySelector(".sidebar");
 
 onAuthStateChanged(auth, async (user) => {
 
@@ -73,5 +75,10 @@ logoutBtn.addEventListener("click", async () => {
         alert(error.message);
 
     }
+
+});
+menuBtn.addEventListener("click", () => {
+
+    sidebar.classList.toggle("active");
 
 });
