@@ -2,7 +2,8 @@ import app from "../firebase/firebase-config.js";
 
 import {
     getAuth,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    signOut
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 const auth = getAuth(app);
@@ -19,11 +20,27 @@ form.addEventListener("submit", async (e) => {
 
     try {
 
-        await signInWithEmailAndPassword(
-            auth,
-            email.value,
-            password.value
-        );
+        const userCredential = await signInWithEmailAndPassword(
+    auth,
+    email.value,
+    password.value
+);
+
+const user = userCredential.user;
+
+if (!user.emailVerified) {
+
+    await signOut(auth);
+
+    message.style.color = "#ff4d4d";
+    message.textContent =
+        "Please verify your email before logging in.";
+
+    return;
+}
+
+message.style.color = "#00e676";
+message.textContent = "Login successful!";
 
         message.style.color = "#00e676";
         message.textContent = "Login successful!";
