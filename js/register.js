@@ -1,3 +1,10 @@
+import db from "../firebase/database.js";
+
+import {
+    doc,
+    setDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 import app from "../firebase/firebase-config.js";
 
 import {
@@ -46,6 +53,15 @@ form.addEventListener("submit", async (e) => {
         );
 
         await sendEmailVerification(userCredential.user);
+        
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+    fullName: fullName.value,
+    email: email.value,
+    role: "player",
+    createdAt: serverTimestamp(),
+    profileImage: "",
+    teamId: ""
+});
 
         message.style.color = "#00e676";
         message.textContent =
