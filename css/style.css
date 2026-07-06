@@ -159,3 +159,148 @@ section{
     background:var(--primary-color);
     color:#000;
 }
+/* Scroll Reveal Animation */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:all .8s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+/* ==========================
+   Scroll To Top Button
+========================== */
+
+#scrollTopBtn{
+
+    position:fixed;
+
+    bottom:30px;
+
+    right:30px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--primary-color);
+
+    color:#000;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:999;
+
+    transition:.3s ease;
+
+    box-shadow:0 10px 30px rgba(255,193,7,.3);
+
+}
+
+#scrollTopBtn:hover{
+
+    transform:translateY(-5px) scale(1.05);
+
+}
+/* ==========================
+   Loading Screen
+========================== */
+
+#loader{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:#05070C;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    transition:.6s;
+
+}
+
+.loader-content{
+
+    text-align:center;
+
+}
+
+.loader-logo{
+
+    font-size:70px;
+
+    animation:spin 2s linear infinite;
+
+}
+
+.loader-content h2{
+
+    color:#fff;
+
+    margin-top:20px;
+
+}
+
+.loader-content p{
+
+    color:var(--text-secondary);
+
+}
+
+.loader-hidden{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+@keyframes spin{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
