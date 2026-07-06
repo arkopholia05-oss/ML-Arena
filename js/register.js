@@ -1,47 +1,80 @@
-const form = document.getElementById("registerForm");
+import app from "../firebase/firebase-config.js";
 
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    sendEmailVerification
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+const auth = getAuth(app);
+
+const form = document.getElementById("registerForm");
+const fullName = document.getElementById("fullName");
+const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirmPassword");
-
-const showPassword = document.getElementById("showPassword");
-
 const message = document.getElementById("message");
 
-// Show / Hide Password
-showPassword.addEventListener("change", () => {
-
-    const type = showPassword.checked ? "text" : "password";
-
-    password.type = type;
-    confirmPassword.type = type;
-
-});
-
-// Form Validation
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
+    message.textContent = "";
     message.style.color = "#ff4d4d";
 
-    if(password.value.length < 8){
+    if (fullName.value.trim() === "") {
+        message.textContent = "Please enter your full name.";
+        return;
+    }
 
+    if (password.value.length < 8) {
         message.textContent = "Password must be at least 8 characters.";
-
         return;
-
     }
 
-    if(password.value !== confirmPassword.value){
-
+    if (password.value !== confirmPassword.value) {
         message.textContent = "Passwords do not match.";
-
         return;
-
     }
 
-    message.style.color = "#00e676";
+    try {
 
-    message.textContent = "Validation successful. Firebase integration is next!";
+        const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            email.value,
+            password.value
+        );
+
+        await sendEmailVerification(userCredential.user);
+
+        message.style.color = "#00e676";
+        message.textContent =
+            "Account created successfully! Please verify your email.";
+
+        form.reset();
+
+    } catch (error) {
+
+        message.style.color = "#ff4d4d";
+
+        switch (error.code) {
+
+            case "auth/email-already-in-use":
+                message.textContent = "This email is already registered.";
+                break;
+
+            case "auth/invalid-email":
+                message.textContent = "Please enter a valid email.";
+                break;
+
+            case "auth/weak-password":
+                message.textContent = "Password is too weak.";
+                break;
+
+            default:
+                message.textContent = error.message;
+        }
+
+    }
 
 });
