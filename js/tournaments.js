@@ -1,3 +1,4 @@
+console.log("JS Loaded");
 import {
     getFirestore,
     collection,
@@ -15,6 +16,8 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 const tournamentList = document.getElementById("tournamentList");
+
+console.log(tournamentList);
 
 async function loadTournaments(){
 
